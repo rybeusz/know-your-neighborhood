@@ -37,16 +37,16 @@ def load_csv():
 
 def list_statistics():
     table_data = [
-    ['Count', 'Type'],
-    [(len(Wojewodztwo.get_list())), 'województwo'],
-    [len(Powiat.get_list()), 'powiaty'],
-    [len(GminaMiejska.get_list()), 'gminy miejskie'],
-    [len(GminaWiejska.get_list()), 'gminy wiejskie'],
-    [len(GminaMiejskoWiejska.get_list()), 'gminy miejsko-wiejskie'],
-    [len(ObszarWiejski.get_list()), 'obszary wiejskie'],
-    [len(Miasto.get_list()), 'miasta'],
-    [len(MiastoNaPrawachPowiatu.get_list()), 'miasta na prawach powiatu'],
-    [len(Delegatura.get_list()), 'delegatury']
+        ['Count', 'Type'],
+        [(len(Wojewodztwo.get_list())), 'województwo'],
+        [len(Powiat.get_list()), 'powiaty'],
+        [len(GminaMiejska.get_list()), 'gminy miejskie'],
+        [len(GminaWiejska.get_list()), 'gminy wiejskie'],
+        [len(GminaMiejskoWiejska.get_list()), 'gminy miejsko-wiejskie'],
+        [len(ObszarWiejski.get_list()), 'obszary wiejskie'],
+        [len(Miasto.get_list()), 'miasta'],
+        [len(MiastoNaPrawachPowiatu.get_list()), 'miasta na prawach powiatu'],
+        [len(Delegatura.get_list()), 'delegatury']
     ]
     table = AsciiTable(table_data)
     print(table.table)
@@ -55,7 +55,8 @@ def list_statistics():
 def display_three_cities_with_longest_names():
     list_of_city_names = [city.get_name() for city in MiastoNaPrawachPowiatu.get_list() + Miasto.get_list()]
     list_of_city_names.sort(key=len, reverse=True)
-    print("Three cities with longest names: \n" + '\n'.join(list_of_city_names[:3]))  # 3- how many cities you want display
+    # print below on the end [:3] how many cities you want display
+    print("Three cities with longest names: \n" + '\n'.join(list_of_city_names[:3]))
 
 
 def display_county_name_with_the_largetst_number_of_communities():
